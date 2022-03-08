@@ -102,6 +102,8 @@ async function scrapeprimegb($, type) {
         let price = $(pricelist[1]).text()
         if (price == '') {
             price = $(pricelist).text()
+            if (price == '')
+                price = '₹0';
         }
         const sku = `${title}${site}`;
         const details = {
@@ -111,6 +113,7 @@ async function scrapeprimegb($, type) {
             url: url,
             site: site,
         };
+        console.log(details)
         await itemService.getOne(sku, type).then((response) => {
             if (response) {
                 try {
