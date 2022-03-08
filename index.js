@@ -5,6 +5,10 @@ const theitdepotr = require('./route/theitdepotr')
 const vedantr = require('./route/vedantr')
 const primegb = require('./route/primegbr')
 const fetchr = require('./route/fetch')
+const getStorage = require('./route/getdata/getstorage')
+const getProcessor = require('./route/getdata/getprocessor')
+const getMemory = require('./route/getdata/getmemory')
+const getGraphics = require('./route/getdata/getgraphics')
 require('dotenv').config();
 const PORT = process.env.PORT
 
@@ -25,7 +29,11 @@ app.get('/', (req, res) => {
 
 
 
-app.use('/fetch', fetchr)
+app.use('/fetch', fetchr);
+app.use('/getstorage', getStorage);
+app.use('/getprocessor', getProcessor);
+app.use('/getgraphics', getGraphics);
+app.use('/getmemory', getMemory);
 // app.use('/mdcomp', mdcompr);
 // app.use('/theitdepot', theitdepotr);
 // app.use('/vedant', vedantr)

@@ -6,7 +6,10 @@ router
     .get('/', async (req, res, next) => {
         console.log('inside primegb')
         // res.json("primegb...")
+        await primegbs.getStorage();
         await primegbs.getProcessor();
+        await primegbs.getGraphics();
+        await primegbs.getMemory();
         
         // next()
     })
