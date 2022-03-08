@@ -6,7 +6,7 @@ const vedantr = require('./route/vedantr')
 const primegb = require('./route/primegbr')
 const fetchr = require('./route/fetch')
 require('dotenv').config();
-const PORT = 8000
+const PORT = process.env.PORT
 
 
 const app = express();
