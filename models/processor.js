@@ -26,7 +26,7 @@ const processorSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        expires: 90000
+        expires: '25h'
     }
 });
 
