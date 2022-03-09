@@ -114,7 +114,6 @@ async function scrapeprimegb($, type) {
             url: url,
             site: site,
         };
-        console.log(details)
         await itemService.getOne(sku, type).then((response) => {
             if (response) {
                 try {
