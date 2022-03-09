@@ -32,6 +32,7 @@ class vedants {
     }
 
     static async getProcessor() {
+        console.log('----------PROCESSOR----------')
         while (flag == false) {
             await axios.get(`https://www.vedantcomputers.com/pc-components/processor?page=${j}`)
                 .then(async (response) => {

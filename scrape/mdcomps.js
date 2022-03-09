@@ -56,6 +56,7 @@ class mdcomp {
     static async getProcessor() {
         flag = false;
         let j = 1
+        console.log('----------PROCESSOR----------')
         while (resp != 0 && flag == false) {
             console.log(`flag => ${flag}`)
             await axios.get(`https://mdcomputers.in/processor?page=${j}`)

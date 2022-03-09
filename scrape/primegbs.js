@@ -36,6 +36,7 @@ class primeabgb {
     }
     static async getProcessor() {
         let j = 1;
+        console.log('----------PROCESSOR----------')
         flag = false;
         while (flag == false) {
             await axios.get(`https://www.primeabgb.com/buy-online-price-india/cpu-processor/page/${j}/`)

@@ -38,6 +38,7 @@ class theitdepot {
 
     static async getProcessor() {
         const { page, browser } = await openbrowser();
+        console.log('----------PROCESSOR----------')
         let j = 1;
         flag = false;
         while (flag == false) {
