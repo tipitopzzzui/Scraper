@@ -103,6 +103,14 @@ async function scrapemdcomp($, type) {
         const url = $(item).attr('href');
         const price = $(element[i]).find('span.price-new').text().trim()
         const sku = `${title}${site}`;
+        if (price == '')
+        {
+            price = '0'
+        }
+        if (title == '')
+        {
+            title = 'N/A'
+        }
         const details = {
             sku: sku,
             title: title,

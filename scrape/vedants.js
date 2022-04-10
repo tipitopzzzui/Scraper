@@ -87,6 +87,14 @@ async function scrapevedants($, type) {
         if (price == "") {
             price = $(element[i]).find('span.price-normal').text().trim()
         }
+        if (price == '')
+        {
+            price = '0'
+        }
+        if (title == '')
+        {
+            title = 'N/A'
+        }
         const details = {
             sku: sku,
             title: title,

@@ -123,6 +123,14 @@ async function scrapetheitdepots($, type) {
         const price = "₹" + $(element[i]).find('div.card-text.px-2.py-1.product_title').find('strong').text().trim();
         const url = `https://www.theitdepot.com/${(item).attr("href")}`;
         const sku = `${title}${site}`;
+        if (price == '')
+        {
+            price = '0'
+        }
+        if (title == '')
+        {
+            title = 'N/A'
+        }
         const details = {
             sku: sku,
             title: title,

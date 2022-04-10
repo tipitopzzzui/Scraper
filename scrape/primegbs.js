@@ -107,6 +107,14 @@ async function scrapeprimegb($, type) {
                 price = '₹0';
         }
         const sku = `${title}${site}`;
+        if (price == '')
+        {
+            price = '0'
+        }
+        if (title == '')
+        {
+            title = 'N/A'
+        }
         const details = {
             sku: sku,
             title: title,
