@@ -117,11 +117,16 @@ async function scrapetheitdepots($, type) {
     if (element.length == 0) { flag = true; return;}
     // console.log(element)
     for (let i = 0; i < element.length; i++) {
-        const stock = $(element[i]).find('span.textcentered.badge.badge-white.bg-white.shadow.text-danger.text-uppercase.px-4.py-2').text().trim();
-        const item = $(element[i]).find('div.card-text.px-2.py-1.font-size85.product_title').find('a');
-        const title = $(item).attr("title");
-        const price = "₹" + $(element[i]).find('div.card-text.px-2.py-1.product_title').find('strong').text().trim();
-        const url = `https://www.theitdepot.com/${(item).attr("href")}`;
+        let stock = $(element[i]).find('span.textcentered.badge.badge-white.bg-white.shadow.text-danger.text-uppercase.px-4.py-2').text().trim();
+        let item = $(element[i]).find('div.card-text.px-2.py-1.font-size85.product_title').find('a');
+        let title = $(item).attr("title");
+        let price = "₹" + $(element[i]).find('div.card-text.px-2.py-1.product_title').find('strong').text().trim();
+        let url = `https://www.theitdepot.com/${(item).attr("href")}`;
+        // const stock = $(element[i]).find("span.textcentered.badge.badge-white.bg-white.shadow.text-danger.text-uppercase.px-4.py-2").text().trim()
+        if(stock == '')
+        {
+            stock = "In stock";
+        }
         const sku = `${title}${site}`;
         if (price == '')
         {
@@ -136,7 +141,8 @@ async function scrapetheitdepots($, type) {
             title: title,
             url: url,
             price: price,
-            site: site
+            site: site,
+            stock: stock
         };
         await itemService.getOne(sku, type).then((response) => {
             if (response) {

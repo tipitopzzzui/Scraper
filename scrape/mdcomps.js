@@ -98,10 +98,10 @@ async function scrapemdcomp($, type) {
         return;
     }
     for (let i = 0; i < element.length; i++) {
-        const item = $(element[i]).find('div.right-block.right-b').find('a');
-        const title = $(item).text().trim();
-        const url = $(item).attr('href');
-        const price = $(element[i]).find('span.price-new').text().trim()
+        let item = $(element[i]).find('div.right-block.right-b').find('a');
+        let title = $(item).text().trim();
+        let url = $(item).attr('href');
+        let price = $(element[i]).find('span.price-new').text().trim()
         const sku = `${title}${site}`;
         if (price == '')
         {
@@ -111,12 +111,14 @@ async function scrapemdcomp($, type) {
         {
             title = 'N/A'
         }
+        const stock = "In stock";
         const details = {
             sku: sku,
             title: title,
             url: url,
             price: price,
             site: site,
+            stock: stock
         };
         await itemService.getOne(sku, type).then((response) => {
             if (response) {

@@ -83,6 +83,7 @@ async function scrapevedants($, type) {
         const url = $(item).attr('href');
         const title = $(item).text().trim();
         const sku = `${title}${site}`;
+        const stock = "In Stock";
         let price = $(element[i]).find('span.price-new').text().trim()
         if (price == "") {
             price = $(element[i]).find('span.price-normal').text().trim()
@@ -101,6 +102,7 @@ async function scrapevedants($, type) {
             url: url,
             price: price,
             site: site,
+            stock: stock
         };
         await itemService.getOne(sku, type).then((response) => {
             if (response) {

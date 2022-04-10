@@ -96,10 +96,14 @@ async function scrapeprimegb($, type) {
     const element = $('div.product-wrapper');
     if (element.length == 0) { flag = true; }
     for (let i = 0; i < element.length; i++) {
-        const item = $(element[i]).find("div.product-info").find("a");
-        const title = $(item).text().trim();
-        const url = $(item).attr("href");
-        const pricelist = $(element[i]).find("span.woocommerce-Price-amount.amount")
+        let item = $(element[i]).find("div.product-info").find("a");
+        let title = $(item).text().trim();
+        let url = $(item).attr("href");
+        let pricelist = $(element[i]).find("span.woocommerce-Price-amount.amount")
+        const stock = $(element[i]).find("span.out-of-stock").text()
+        if (stock == ''){
+            stock = 'In stock';
+        }
         let price = $(pricelist[1]).text()
         if (price == '') {
             price = $(pricelist).text()
@@ -121,6 +125,7 @@ async function scrapeprimegb($, type) {
             price: price,
             url: url,
             site: site,
+            stock: stock
         };
         await itemService.getOne(sku, type).then((response) => {
             if (response) {

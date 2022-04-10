@@ -23,6 +23,10 @@ const graphicsSchema = new Schema({
         type: String,
         required: true
     },
+    stock: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now,
