@@ -100,7 +100,7 @@ async function scrapeprimegb($, type) {
         let title = $(item).text().trim();
         let url = $(item).attr("href");
         let pricelist = $(element[i]).find("span.woocommerce-Price-amount.amount")
-        const stock = $(element[i]).find("span.out-of-stock").text()
+        let stock = $(element[i]).find("span.out-of-stock").text()
         if (stock == ''){
             stock = 'In stock';
         }
