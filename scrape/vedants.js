@@ -73,6 +73,102 @@ class vedants {
                 })
         }
     }
+    static async getCabinet() {
+        while (flag == false) {
+            await axios.get(`https://www.vedantcomputers.com/pc-components/cabinet?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapevedants($, "cabinet");
+                    j = j + 1;
+                }).catch((err) => {
+                    flag = true;
+                })
+        }
+    }
+
+    static async getHeadset() {
+        while (flag == false) {
+            await axios.get(`https://www.vedantcomputers.com/pc-components/peripherals/headset?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapevedants($, "headset");
+                    j = j + 1;
+                }).catch((err) => {
+                    flag = true;
+                })
+        }
+    }
+
+    static async getKeyboard() {
+        while (flag == false) {
+            await axios.get(`https://www.vedantcomputers.com/pc-components/peripherals/keyboard?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapevedants($, "keyboard");
+                    j = j + 1;
+                }).catch((err) => {
+                    flag = true;
+                })
+        }
+    }
+
+    static async getMonitor() {
+        while (flag == false) {
+            await axios.get(`https://www.vedantcomputers.com/pc-components/monitor?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapevedants($, "monitor");
+                    j = j + 1;
+                }).catch((err) => {
+                    flag = true;
+                })
+        }
+    }
+    static async getMotherboard() {
+        while (flag == false) {
+            await axios.get(`https://www.vedantcomputers.com/pc-components/motherboard?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapevedants($, "motherboard");
+                    j = j + 1;
+                }).catch((err) => {
+                    flag = true;
+                })
+        }
+    }
+
+    static async getMouse() {
+        while (flag == false) {
+            await axios.get(`https://www.vedantcomputers.com/pc-components/peripherals/mouse?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapevedants($, "mouse");
+                    j = j + 1;
+                }).catch((err) => {
+                    flag = true;
+                })
+        }
+    }
+
+    static async getPower() {
+        while (flag == false) {
+            await axios.get(`https://www.vedantcomputers.com/pc-components/power-supply?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapevedants($, "power");
+                    j = j + 1;
+                }).catch((err) => {
+                    flag = true;
+                })
+        }
+    }
 }
 
 async function scrapevedants($, type) {

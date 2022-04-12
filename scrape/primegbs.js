@@ -86,6 +86,125 @@ class primeabgb {
                 })
         }
     }
+    static async getMonitor() {
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            await axios.get(`https://www.primeabgb.com/buy-online-price-india/led-monitors/page/${j}/`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapeprimegb($, "monitor");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    flag = true;
+                    resp = 0;
+                })
+        }
+    }
+    static async getMotherboard() {
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            await axios.get(`https://www.primeabgb.com/buy-online-price-india/motherboards/page/${j}/`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapeprimegb($, "motherboard");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    flag = true;
+                    console.log(err)
+                })
+        }
+    }
+    static async getMouse() {
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            await axios.get(`https://www.primeabgb.com/buy-online-price-india/mouse-mice/page/${j}/`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapeprimegb($, "mouse");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    flag = true;
+                    resp = 0;
+                })
+        }
+    }
+    static async getPower() {
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            await axios.get(`https://www.primeabgb.com/buy-online-price-india/power-supplies-smps/page/${j}/`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapeprimegb($, "power");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    flag = true;
+                    resp = 0;
+                })
+        }
+    }
+    static async getCabinet() {
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            await axios.get(`https://www.primeabgb.com/buy-online-price-india/pc-cases-cabinet/page/${j}/`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapeprimegb($, "cabinet");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    flag = true;
+                    resp = 0;
+                })
+        }
+    }
+    static async getHeadset() {
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            await axios.get(`https://www.primeabgb.com/buy-online-price-india/gaming-headset/page/${j}/`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapeprimegb($, "headset");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    flag = true;
+                    console.log(err)
+                })
+        }
+    }
+    static async getKeyboard() {
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            await axios.get(`https://www.primeabgb.com/buy-online-price-india/keyboard/page/${j}/`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapeprimegb($, "keyboard");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    flag = true;
+                    resp = 0;
+                })
+        }
+    }
 }
 
 

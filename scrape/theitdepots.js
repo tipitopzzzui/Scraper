@@ -99,6 +99,153 @@ class theitdepot {
         }
         browser.close();
     }
+    static async getCabinet() {
+        const { page, browser } = await openbrowser();
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            try {
+                console.log(`j => ${j}`)
+    
+                await page.goto(`https://www.theitdepot.com/products-Computer+Cabinets_C5.html?page=${j}`);
+                const content = await page.content();
+                const $ = cheerio.load(content)
+                await scrapetheitdepots($, "cabinet");
+                j = j + 1;
+            } catch (error) {
+                flag = true;
+                console.log(error)   
+            }
+
+        }
+        browser.close();
+    }
+
+    static async getHeadset() {
+        const { page, browser } = await openbrowser();
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            try {
+    
+                await page.goto(`https://www.theitdepot.com/products-Headphones_C19.html?page=${j}`);
+                const content = await page.content();
+                const $ = cheerio.load(content)
+                await scrapetheitdepots($, "headset");
+                j = j + 1;
+            } catch (error) {
+                flag = true;
+                console.log(error)   
+            }
+
+        }
+        browser.close();
+    }
+
+    static async getKeyboard() {
+        const { page, browser } = await openbrowser();
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            try {
+    
+                await page.goto(`https://www.theitdepot.com/products-Gaming+Keyboards_C9SU14.html?page=${j}`);
+                const content = await page.content();
+                const $ = cheerio.load(content)
+                await scrapetheitdepots($, "keyboard");
+                j = j + 1;
+            } catch (error) {
+                flag = true;
+                console.log(error)   
+            }
+
+        }
+        browser.close();
+    }
+
+    static async getMonitor() {
+        const { page, browser } = await openbrowser();
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            try {
+    
+                await page.goto(`https://www.theitdepot.com/products-Monitor_C7.html?page=${j}`);
+                const content = await page.content();
+                const $ = cheerio.load(content)
+                await scrapetheitdepots($, "monitor");
+                j = j + 1;
+            } catch (error) {
+                flag = true;
+                console.log(error)   
+            }
+
+        }
+        browser.close();
+    }
+    static async getMotherboard() {
+        const { page, browser } = await openbrowser();
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            try {
+                console.log(`j => ${j}`)
+    
+                await page.goto(`https://www.theitdepot.com/products-Motherboards_C13.html?page=${j}`);
+                const content = await page.content();
+                const $ = cheerio.load(content)
+                await scrapetheitdepots($, "motherboard");
+                j = j + 1;
+            } catch (error) {
+                flag = true;
+                console.log(error)   
+            }
+
+        }
+        browser.close();
+    }
+
+    static async getMouse() {
+        const { page, browser } = await openbrowser();
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            try {
+    
+                await page.goto(`https://www.theitdepot.com/products-Mouse+(Mice)_C1.html?page=${j}`);
+                const content = await page.content();
+                const $ = cheerio.load(content)
+                await scrapetheitdepots($, "mouse");
+                j = j + 1;
+            } catch (error) {
+                flag = true;
+                console.log(error)   
+            }
+
+        }
+        browser.close();
+    }
+
+    static async getPower() {
+        const { page, browser } = await openbrowser();
+        let j = 1;
+        flag = false;
+        while (flag == false) {
+            try {
+    
+                await page.goto(`https://www.theitdepot.com/products-PSU+(+Power+Supply+Units)_C14.html?page=${j}`);
+                const content = await page.content();
+                const $ = cheerio.load(content)
+                await scrapetheitdepots($, "power");
+                j = j + 1;
+            } catch (error) {
+                flag = true;
+                console.log(error)   
+            }
+
+        }
+        browser.close();
+    }
 }
 
 

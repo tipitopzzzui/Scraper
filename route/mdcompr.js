@@ -9,6 +9,13 @@ router
         await mdcomps.getProcessor();
         await mdcomps.getGraphics();
         await mdcomps.getMemory();
+        await mdcomps.getMotherboard();
+        await mdcomps.getPower();
+        await mdcomps.getMonitor();
+        await mdcomps.getCabinet();
+        await mdcomps.getMouse();
+        await mdcomps.getKeyboard();
+        await mdcomps.getHeadset();
         // res.json("Hi")
         next()
     })

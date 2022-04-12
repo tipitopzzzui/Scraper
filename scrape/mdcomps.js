@@ -90,6 +90,132 @@ class mdcomp {
                 })
         }
     }
+
+    static async getMotherboard() {
+        let j = 1
+        flag = false;
+        while (resp != 0 && flag == false) {
+            await axios.get(`https://mdcomputers.in/motherboards?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapemdcomp($, "motherboard");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    resp = 0;
+                    // console.log(err)
+                })
+        }
+    }
+
+    static async getPower() {
+        let j = 1
+        flag = false;
+        while (resp != 0 && flag == false) {
+            await axios.get(`https://mdcomputers.in/smps?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapemdcomp($, "power");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    resp = 0;
+                    // console.log(err)
+                })
+        }
+    }
+
+    static async getMonitor() {
+        let j = 1
+        flag = false;
+        while (resp != 0 && flag == false) {
+            await axios.get(`https://mdcomputers.in/monitors?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapemdcomp($, "monitor");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    resp = 0;
+                    // console.log(err)
+                })
+        }
+    }
+
+    static async getCabinet() {
+        let j = 1
+        flag = false;
+        while (resp != 0 && flag == false) {
+            await axios.get(`https://mdcomputers.in/cabinet?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapemdcomp($, "cabinet");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    resp = 0;
+                    // console.log(err)
+                })
+        }
+    }
+
+    static async getMouse() {
+        let j = 1
+        flag = false;
+        while (resp != 0 && flag == false) {
+            await axios.get(`https://mdcomputers.in/mouse?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapemdcomp($, "mouse");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    resp = 0;
+                    // console.log(err)
+                })
+        }
+    }
+
+    static async getKeyboard() {
+        let j = 1
+        flag = false;
+        while (resp != 0 && flag == false) {
+            await axios.get(`https://mdcomputers.in/keyboard?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapemdcomp($, "keyboard");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    resp = 0;
+                    // console.log(err)
+                })
+        }
+    }
+
+    static async getHeadset() {
+        let j = 1
+        flag = false;
+        while (resp != 0 && flag == false) {
+            await axios.get(`https://mdcomputers.in/headsets?page=${j}`)
+                .then(async (response) => {
+                    const html = response.data
+                    const $ = cheerio.load(html)
+                    await scrapemdcomp($, "headset");
+                    j = j + 1;
+                })
+                .catch((err) => {
+                    resp = 0;
+                    // console.log(err)
+                })
+        }
+    }
 }
 async function scrapemdcomp($, type) {
     const element = $('div.product-item-container');
@@ -101,6 +227,7 @@ async function scrapemdcomp($, type) {
         let item = $(element[i]).find('div.right-block.right-b').find('a');
         let title = $(item).text().trim();
         let url = $(item).attr('href');
+        url = `${url}?tracking=bu8gCQsOURomCJCAApLWF4Wq7QfzCwYnTNb3GvixW3NNaEtlLQdH5mQm4pgkJOkA`;
         let price = $(element[i]).find('span.price-new').text().trim()
         const sku = `${title}${site}`;
         if (price == '')
