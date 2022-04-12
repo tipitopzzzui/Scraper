@@ -10,6 +10,13 @@ router
         await primegbs.getProcessor();
         await primegbs.getGraphics();
         await primegbs.getMemory();
+        await primegbs.getCabinet();
+        await primegbs.getHeadset();
+        await primegbs.getKeyboard();
+        await primegbs.getMonitor();
+        await primegbs.getMotherboard();
+        await primegbs.getMouse();
+        await primegbs.getPower();
         
         // next()
     })
